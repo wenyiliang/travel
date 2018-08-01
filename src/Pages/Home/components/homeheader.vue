@@ -2,12 +2,19 @@
   <div class="header">
   	    <div class="header-left"><div class="iconfont icon-fanhui"></div></div>
   	    <div class="search"><span class="iconfont icon-sousuo"></span>输入景点/城市、游玩地</div>
-  	    <div class="header-right">城市<span class="iconfont icon-jiantou"></span></div>
+  	    <router-link to="/city"><div class="header-right">{{this.city}}<span class="iconfont icon-jiantou"></span></div></router-link>
   </div>
 </template>
 <script type="text/javascript">
+import {mapState} from "vuex" 
 export default {
-  name: "HomeHeader"
+  name: "HomeHeader",
+  computed:{
+  	 ...mapState(["city"])
+  }
+  // props:{
+  // 	   city: String
+  // }
 }
 </script>
 <style lang="stylus" scoped>
@@ -31,7 +38,9 @@ export default {
 	   	 	flex:1
 	   	 	background:#fff
 	   	 .header-right
-	   	 	width:1.24rem
+	   	 	min-width:1.04rem
+	   	 	padding:0 .1rem
 	   	 	text-align:center
+	   	 	color:#fff
 
 </style>
